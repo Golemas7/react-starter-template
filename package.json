@@ -1,0 +1,91 @@
+{
+  "name": "boilerplate-react-redux-saga",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@reduxjs/toolkit": "^1.6.1",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^12.0.0",
+    "@testing-library/user-event": "^13.2.1",
+    "clsx": "^1.1.1",
+    "jest-environment-jsdom-sixteen": "^2.0.0",
+    "lint-staged": "^11.1.2",
+    "node-sass": "^6.0.1",
+    "prop-types": "^15.7.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-intl": "^5.20.10",
+    "react-redux": "^7.2.4",
+    "react-router-dom": "^5.2.1",
+    "react-scripts": "^4.0.3",
+    "redux-saga": "^1.1.3"
+  },
+  "devDependencies": {
+    "@formatjs/cli": "^4.2.33",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-formatjs": "^2.17.6",
+    "eslint-plugin-prettier": "^4.0.0",
+    "husky": "^7.0.0",
+    "intl": "^1.2.5",
+    "prettier": "^2.3.2",
+    "stylelint": "^13.13.1",
+    "stylelint-config-css-modules": "^2.2.0",
+    "stylelint-config-prettier": "^8.0.2",
+    "stylelint-config-sass-guidelines": "^8.0.0",
+    "stylelint-declaration-use-variable": "^1.7.3",
+    "stylelint-prettier": "^1.2.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jest-environment-jsdom-sixteen",
+    "eject": "react-scripts eject",
+    "extract-intl": "node tools/intl/extract-intl.js",
+    "test:all": "npm test -- --watchAll=false",
+    "test:all:coverage": "npm run -s test:all -- --coverage",
+    "lint": "npm run -s lint:prettier:check && npm run -s lint:eslint:check && npm run -s lint:stylelint:check",
+    "lint:fix": "npm run -s lint:prettier:fix",
+    "lint:prettier": "prettier --check",
+    "lint:prettier:check": "prettier --check \"src/**/*.{js,jsx,scss,json,css,md}\"",
+    "lint:prettier:fix": "prettier --write \"src/**/*.{js,jsx,scss,json,css,md}\"",
+    "lint:eslint": "eslint --max-warnings 0",
+    "lint:eslint:check": "npm run -s lint:eslint \"src/**/*.{js,jsx}\"",
+    "lint:eslint:fix": "npm run -s lint:eslint \"src/**/*.{js,jsx}\" --fix",
+    "lint:stylelint": "stylelint",
+    "lint:stylelint:check": "npm run -s lint:stylelint \"src/**/*.scss\"",
+    "lint:stylelint:fix": "npm run -s lint:stylelint \"src/**/*.scss\" --fix",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,json,css,scss,md}": "prettier --write",
+    "src/**/*.{js,jsx}": "eslint --max-warnings 0",
+    "src/**/*.{css,scss}": "stylelint"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}",
+      "!<rootDir>/node_modules/"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 80,
+        "functions": 80,
+        "lines": 80,
+        "statements": 80
+      }
+    }
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "proxy": "https://registry.npmjs.org"
+}

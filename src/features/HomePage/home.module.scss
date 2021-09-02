@@ -1,0 +1,45 @@
+@import '../../style/tools';
+
+$color-header: #fff;
+$font-size-header: calc(10px + 2vmin);
+$color-app-link: #61dafb;
+
+.App {
+  text-align: center;
+}
+
+.AppLogo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .AppLogo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.AppHeader {
+  align-items: center;
+  background-color: $color-dark-hero;
+  color: $color-header;
+  display: flex;
+  flex-direction: column;
+  font-size: $font-size-header;
+  justify-content: center;
+  min-height: 70vh;
+}
+
+.AppLink {
+  color: $color-app-link;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

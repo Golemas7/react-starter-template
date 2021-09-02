@@ -1,0 +1,99 @@
+@import '../../style/tools';
+
+$font-size-value: 78px;
+$font-size-big: 32px;
+$color-button: rgb(112, 76, 182);
+$color-button-active: rgba(112, 76, 182, 0.2);
+$color-button-progress: rgba(112, 76, 182, 0.15);
+$color-debug-bg: #eee;
+$font-size-debug: 12px;
+
+.row {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+
+  &:not(:last-child) {
+    margin-bottom: 16px;
+  }
+}
+
+.value {
+  font-family: $font-family-code;
+  font-size: $font-size-value;
+  margin-top: 2px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.button {
+  appearance: none;
+  background: rgba(112, 76, 182, 0.1);
+  border: 2px solid transparent;
+  border-radius: 2px;
+  color: $color-button;
+  font-size: $font-size-big;
+  outline: none;
+  padding-bottom: 4px;
+  padding-left: 12px;
+  padding-right: 12px;
+  transition: all 0.15s;
+
+  &:hover,
+  &:focus {
+    border: 2px solid rgba(112, 76, 182, 0.4);
+  }
+
+  &:active {
+    background-color: $color-button-active;
+  }
+}
+
+.asyncButton {
+  composes: button;
+  margin-left: 8px;
+  position: relative;
+
+  &::after {
+    background-color: $color-button-progress;
+    content: '';
+    display: block;
+    height: 100%;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    transition: width 1s linear, opacity 0.5s ease 1s;
+    width: 100%;
+  }
+
+  &:active::after {
+    opacity: 1;
+    transition: 0s;
+    width: 0%;
+  }
+}
+
+.textbox {
+  font-size: $font-size-big;
+  margin-right: 8px;
+  padding: 2px;
+  text-align: center;
+  width: 64px;
+}
+
+.error {
+  color: $color-error;
+}
+
+.debug {
+  background: $color-debug-bg;
+  font-family: $font-family-code;
+  font-size: $font-size-debug;
+  max-width: 100%;
+  overflow: auto;
+  padding: 10px;
+  text-align: left;
+  white-space: pre;
+  width: 300px;
+}
